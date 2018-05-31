@@ -1,4 +1,4 @@
-# React Sticky Box
+# React Sticky Content
 
 ## Idea
 
@@ -10,12 +10,12 @@ We know lots of pages with sticky navigations. But what happens if the navigatio
 
 ## Installation
 
-`npm install react-sticky-box`
+`npm install react-sticky-content`
 
 ## Usage
 
 ```jsx
-import StickyBox from "react-sticky-box";
+import StickyBox from "react-sticky-content";
 
 //...
 
@@ -29,7 +29,7 @@ import StickyBox from "react-sticky-box";
 
 ## Using an es2017 build:
 
-`import StickyBox from "react-sticky-box/dist/react-sticky.esnext.js"`
+`import StickyBox from "react-sticky-content/dist/react-sticky.esnext.js"`
 
 ## `position: sticky`
 
@@ -57,8 +57,6 @@ Another benefit of the new approach: you don't need to specify the width anymore
 
 Performance was another priority. The scroll-handler now contains zero DOM-reads (except for getting the scroll position). Any container or content resize will be detected and handled separately via the [resize-observer-polyfill](https://github.com/que-etc/resize-observer-polyfill).
 
-
-
 ### 0.4 -> 0.5
 
 completely rewritten the engine - using position fixed and position absolute. This will lead to almost no jank.
@@ -69,6 +67,13 @@ This change causes some new limitations:
 - no more support for margins on the `<StickyBox/>`. I.e. `<StickyBox style={{marginTop: 20}}/>` etc. is not supported and will lead to undefined behaviour. Use paddings or margins on the parent and/or child nodes instead. (e.g. `<div style={{padding: 20}}><StickyBox width={100}><b style={{margin: 10}}>content</b></StickyBox></div>`)
 - by default the old `stickToTop` behaviour is active, `stickToBottom` is now simply `bottom`
 
-Background: browser started more and more to not reliably fire the `onScroll` and `onMouseWheel` event since their engines started moving scrolling to some async thread for performance reasons. This meant that a lot of scrolling could happen without react-sticky-box getting notified.
+Background: browser started more and more to not reliably fire the `onScroll` and `onMouseWheel` event since their engines started moving scrolling to some async thread for performance reasons. This meant that a lot of scrolling could happen without react-sticky-content getting notified.
 
 By using `position:fixed` and switching to `position:absolute` when certain scroll boundaries are reached, there's no more jank while scrolling. In the worst case a jump will happen when reaching one of these boundaries. But that's much better than jumping almost every frame when scrolling!
+
+Fork form (originally developed)
+https://github.com/codecks-io/react-sticky-box
+
+Fixed top issue, now top position can be user defined. e.g
+(e.g. `<StickyBox style={100}><b>content</b></StickyBox>`)
+If top is defined the top offset will be passed values else default would be 0.

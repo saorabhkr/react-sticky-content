@@ -1,7 +1,7 @@
 {
-  "name": "react-sticky-box",
-  "version": "0.6.2",
-  "description": "Boxes that behave nicely while scrolling",
+  "name": "react-sticky-content",
+  "version": "1.0.0",
+  "description": "Any dom can be sticky.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run lint && npm run prettier-all && npm run build-es && npm run build-cjs && npm run build-pure-es",
@@ -20,7 +20,7 @@
     "sticky",
     "fixed"
   ],
-  "author": "Daniel Berndt <daniel.berndt@gmail.com> (http://danielberndt.net/)",
+  "author": "Saorabh Kumar <saorabh.kr@gmail.com>",
   "license": "ISC",
   "main": "dist/react-sticky.cjs.js",
   "module": "dist/react-sticky.es.js",
@@ -57,7 +57,11 @@
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
-    "resize-observer-polyfill": "^1.3.1"
+    "jshint": "^2.9.5",
+    "npm": "^6.1.0",
+    "resize-observer-polyfill": "^1.3.1",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
   },
   "lint-staged": {
     "*.js": [

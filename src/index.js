@@ -27,7 +27,7 @@ if (typeof CSS !== "undefined" && CSS.supports) {
 }
 
 export default class StickyBox extends React.Component {
-  registerContainerRef = n => {
+  registerContainerRef(n) {
     if (!stickyProp) return;
     this.node = n;
     if (n) {
@@ -64,7 +64,7 @@ export default class StickyBox extends React.Component {
       this.ron.disconnect();
       this.scrollPane = null;
     }
-  };
+  }
 
   initial() {
     const {bottom, style} = this.props;
@@ -84,17 +84,17 @@ export default class StickyBox extends React.Component {
     }
   }
 
-  updateViewport = () => {
+  updateViewport() {
     this.viewPortHeight = window.innerHeight;
     this.scrollPaneOffset = 0;
-  };
+  }
 
-  updateScrollPane = () => {
+  updateScrollPane() {
     this.viewPortHeight = this.scrollPane.offsetHeight;
     this.scrollPaneOffset = this.scrollPane.getBoundingClientRect().top;
-  };
+  }
 
-  updateParentNode = () => {
+  updateParentNode() {
     const parentNode = this.node.parentNode;
     const computedParentStyle = getComputedStyle(parentNode, null);
     const parentPaddingTop = parseInt(computedParentStyle.getPropertyValue("padding-top"), 10);
@@ -106,13 +106,13 @@ export default class StickyBox extends React.Component {
     this.naturalTop =
       offsetTill(parentNode, this.scrollPane) + parentPaddingTop + this.scrollPaneOffset;
     this.parentHeight = parentNode.getBoundingClientRect().height - verticalParentPadding;
-  };
+  }
 
-  updateNode = () => {
+  updateNode() {
     this.nodeHeight = this.node.getBoundingClientRect().height;
-  };
+  }
 
-  handleScroll = () => {
+  handleScroll() {
     const scrollY = this.scrollPane === window ? window.scrollY : this.scrollPane.scrollTop;
     if (scrollY === this.latestScrollY) return;
     if (this.nodeHeight <= this.viewPortHeight) {
@@ -166,7 +166,7 @@ export default class StickyBox extends React.Component {
     }
 
     this.latestScrollY = scrollY;
-  };
+  }
 
   render() {
     const {children, className, style} = this.props;

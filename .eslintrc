@@ -1,0 +1,15 @@
+{
+  "extends": "react-app",
+  "parser": "babel-eslint",
+  "rules": {
+    "no-shadow": "warn",
+    "no-cond-assign": ["error", "except-parens"],
+    "no-unused-vars": [
+      "warn",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
