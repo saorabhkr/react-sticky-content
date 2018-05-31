@@ -24,7 +24,7 @@
   "license": "ISC",
   "main": "dist/react-sticky.cjs.js",
   "module": "dist/react-sticky.es.js",
-  "repository": "danielberndt/react-sticky-box",
+  "repository": "saorabhkr/react-sticky-content",
   "files": [
     "dist"
   ],
